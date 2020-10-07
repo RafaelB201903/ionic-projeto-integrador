@@ -3,7 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { NavController, MenuController } from '@ionic/angular';
 import { TemplateService } from '../services/template.service'; 
-import { loadavg } from 'os';
+
 
 @Component({
   selector: 'app-login',
