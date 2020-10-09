@@ -1,9 +1,18 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
     <ion-title>clientes</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+
+  <ion-list>
+    <ion-item *ngFor="let cliente of lista"><!--ng for irá repetir para todos os clientes, no caso 3 vezes pois terá 3 clientes-->
+      <ion-label>{{cliente.nome}}</ion-label>
+    </ion-item>
+  </ion-list>
 
 </ion-content>

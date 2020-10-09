@@ -14,6 +14,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';//banco de dados
 import { AngularFireStorageModule } from '@angular/fire/storage';//armazenamento
 import { environment } from 'src/environments/environment'; //configuração em eviroments
+import { ClienteService } from './services/cliente.service';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { environment } from 'src/environments/environment'; //configuração em 
   providers: [
     StatusBar,
     SplashScreen,
+    ClienteService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
