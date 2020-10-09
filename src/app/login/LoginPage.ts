@@ -21,23 +21,23 @@ export class LoginPage implements OnInit {
   //admin2@admin.com
   //123456
 
-  formGroup : FormGroup; 
+  formGroup : FormGroup; //variavel vai armazenar os dados do formulário
 
 //tudo que vem de fora pra dentro do app tem q ser injetado no contrutor
   constructor(
-    private formBuilder: FormBuilder,
-    private auth: AngularFireAuth,
-    private navCtrl: NavController,
-    private menuCtrl: MenuController,
+    private formBuilder: FormBuilder,//É o nosso formulario de login (pode ser de cadastro)
+    private auth: AngularFireAuth,// autenticador do firebase
+    private navCtrl: NavController,//Serve para redirecionar a pagina
+    private menuCtrl: MenuController,//Bloquear o menu
     private template: TemplateService //mostrar o carregamento
 
 
-  ) {
+  ) {//Dentro das chaves vem tudo que é iniciado antes do app
       this.iniciarForm();//dentro do construtor
    }
   
-  ngOnInit() {
-   
+  ngOnInit() {//carrega os componentes assim que a pagina for carregada
+   this.menuCtrl.enable(false);
     //quando carregar essa pagina quero q o menu seja desativado
   }
 
@@ -48,12 +48,13 @@ export class LoginPage implements OnInit {
     
     
     this.template.loading.then(load=>{//autenticando 
-    this.auth.signInWithEmailAndPassword(user,pass).then(data=>{//função q ira enviar os dados pro firebase e fará a validação
-    load.dismiss();
-    this.menuCtrl.enable(true);
+      this.auth.signInWithEmailAndPassword(user,pass).then(data=>{//função q ira enviar os dados pro firebase e fará a validação
+      
+        load.dismiss();
+    this.menuCtrl.enable(true);//habilita o menu (á esquerda)
     this.navCtrl.navigateRoot(['clientes']);   //se for iniciada essa linha sucesso, se n 
     }).catch(data=>{ //erro 
-    load.dismiss();//encerrando mensagem
+    load.dismiss();//encerrando carregamento (lá do template (2000 milisegundos))
     this.template.myAlert("Erro ao atenticar");
     });
     })
@@ -66,7 +67,7 @@ export class LoginPage implements OnInit {
 
 
 // o form build
-iniciarForm(){
+iniciarForm(){//Essa função iniciarizará o formulario (sim o formulario precisar ser incializado)
     this.formGroup= this.formBuilder.group({
     username : ['',[Validators.email] ],//valida se os dados do username é um email
     password: ['', [Validators.required, Validators.minLength(13), Validators.maxLength(16)]]

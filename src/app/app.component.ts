@@ -15,12 +15,12 @@ export class AppComponent implements OnInit {
     {
       title: 'clientes',
       url: '/clientes',
-      icon: 'mail'
+      icon: 'people'
     },
     {
       title: 'Novo cliente',
       url: '/cliente-novo',
-      icon: 'mail'
+      icon: 'person'
     },
     {
       title: 'sair',
