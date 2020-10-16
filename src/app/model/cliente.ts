@@ -1,5 +1,5 @@
 export class Cliente{
-id: string;
+id: string;// string por causa do fire base
 cidade: string;
 cpf: string;
 email: string;
@@ -10,9 +10,15 @@ numero: string;
 telefone: string;
 
 //irá pegar um objeto no firebase 
-                //qualquer dado
-setData(objFirebase : any){
-    //to pegando o dado cidade do objetofirebase que vem do firebase
+                
+
+ //set irá pegar um objeto do firebase e para não se 
+ //preocupar com que tipo de dados iremos pegar iremos declara 
+ //como any               
+setData(objFirebase : any){// any = qualquer dado
+    //nome do dado e tipo da funçao
+    //to pegando o dado cidade do objetofirebase que vem do firebase e atribuindo na minha classe
+    //lá em cima
     this.cidade = objFirebase.cidade;
     this.cpf = objFirebase.cpf;
     this.email = objFirebase.email;
@@ -21,7 +27,7 @@ setData(objFirebase : any){
     this.nome = objFirebase.nome;
     this.numero = objFirebase.numero;
     this.telefone = objFirebase.telefone;
-
+//essa variavel
 }
 
 

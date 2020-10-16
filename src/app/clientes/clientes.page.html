@@ -10,9 +10,14 @@
 <ion-content>
 
   <ion-list>
+    <ion-item>
+      <ion-label style='text-align: center;'>Nome</ion-label>
+    </ion-item>
     <ion-item *ngFor="let cliente of lista"><!--ng for irá repetir para todos os clientes, no caso 3 vezes pois terá 3 clientes-->
       <ion-label>{{cliente.nome}}</ion-label>
     </ion-item>
+   
+      
   </ion-list>
 
 </ion-content>
