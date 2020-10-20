@@ -15,6 +15,9 @@
     </ion-item>
     <ion-item *ngFor="let cliente of lista"><!--ng for irá repetir para todos os clientes, no caso 3 vezes pois terá 3 clientes-->
       <ion-label>{{cliente.nome}}</ion-label>
+      <ion-button (click)="visualizar(cliente)">Visualizar</ion-button>
+    <!-- metodo para visualizar e retornar o cliente (pode ser tbm cliente.id)-->
+    
     </ion-item>
    
       

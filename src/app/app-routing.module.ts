@@ -31,7 +31,22 @@ const routes: Routes = [
   {
     path: 'sair',
     loadChildren: () => import('./sair/sair.module').then( m => m.SairPageModule)
-  }
+  },
+  {
+    path: 'clientes-visualizar/:id',
+    loadChildren: () => import('./clientes-visualizar/clientes-visualizar.module').then( m => m.ClientesVisualizarPageModule)
+  },
+  {
+    path: 'clientes-atualizar/:id',
+    loadChildren: () => import('./clientes-atualizar/clientes-atualizar.module').then( m => m.ClientesAtualizarPageModule)
+  },
+  {//nos geramos a rota apenas para o cliente visualizar e n para passar codigo
+    //essas rotas são acessadas informando o id
+    path: 'clientes-excluir/:id',
+    loadChildren: () => import('./clientes-excluir/clientes-excluir.module').then( m => m.ClientesExcluirPageModule)
+  },
+  
+  
 ];
 
 @NgModule({
